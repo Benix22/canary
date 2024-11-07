@@ -3,21 +3,61 @@ pods_status:
   main_pods_running: #TODO: Enter number of main pods running
   canary_pods_running: #TODO: Enter number of canary pods running
 
+#NAME                                                     READY   STATUS    RESTARTS      AGE
+#alertmanager-prometheus-kube-prometheus-alertmanager-0   2/2     Running   2 (34m ago)   77m
+#canary-demo-canary-84bcf9cd4d-fc6mv                      1/1     Running   0             9m50s
+#canary-demo-d655c9c44-bzccf                              1/1     Running   1 (34m ago)   75m
+#canary-demo-d655c9c44-rcxb2                              1/1     Running   1 (34m ago)   75m
+#canary-demo-d655c9c44-sfgmn                              1/1     Running   1 (34m ago)   75m
+#prometheus-grafana-5f78b56899-h9zkj                      3/3     Running   3 (34m ago)   77m
+#prometheus-kube-prometheus-operator-54dcf7dbcc-d824t     1/1     Running   2 (33m ago)   77m
+#prometheus-kube-state-metrics-7fb964d669-bw7zz           1/1     Running   1 (34m ago)   77m
+#prometheus-prometheus-kube-prometheus-prometheus-0       2/2     Running   2 (34m ago)   77m
+#prometheus-prometheus-node-exporter-lfzr8                1/1     Running   1 (34m ago)   77m
+
+
 # Service Information
 service_endpoints:
   main_service_cluster_ip: #TODO: Enter the ClusterIP of main service
   canary_service_cluster_ip: #TODO: Enter the ClusterIP of canary service
+
+#NAME                                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                      AGE
+#alertmanager-operated                     ClusterIP   None             <none>        9093/TCP,9094/TCP,9094/UDP   80m
+#canary-demo                               ClusterIP   10.105.214.71    <none>        80/TCP                       78m
+#canary-demo-canary                        ClusterIP   10.100.245.61    <none>        80/TCP                       78m
+#prometheus-grafana                        ClusterIP   10.106.166.177   <none>        80/TCP                       80m
+#prometheus-kube-prometheus-alertmanager   ClusterIP   10.98.178.135    <none>        9093/TCP,8080/TCP            80m
+#prometheus-kube-prometheus-operator       ClusterIP   10.106.72.63     <none>        443/TCP                      80m
+#prometheus-kube-prometheus-prometheus     ClusterIP   10.104.190.117   <none>        9090/TCP,8080/TCP            80m
+#prometheus-kube-state-metrics             ClusterIP   10.98.81.164     <none>        8080/TCP                     80m
+#prometheus-operated                       ClusterIP   None             <none>        9090/TCP                     80m
+#prometheus-prometheus-node-exporter       ClusterIP   10.103.127.208   <none>        9100/TCP                     80m
+
 
 # Ingress Information
 ingress_details:
   address: #TODO: Enter the Ingress controller IP address
   host: #TODO: Enter the configured host (should be canary-demo.local)
 
+#NAME                       CLASS   HOSTS               ADDRESS        PORTS   AGE
+#canary-demo-ingress        nginx   canary-demo.local   192.168.49.2   80      78m
+#canary-demo-main-ingress   nginx   canary-demo.local   192.168.49.2   80      78m
+
 # Metrics
 main_deployment_metrics:
   http_requests_total: #TODO: Enter the value from main deployment's /metrics endpoint
+  # HELP http_requests_total Total HTTP Requests
+  # TYPE http_requests_total counter
+  # http_requests_total{version="v1"} 12.0
   process_cpu_seconds_total: #TODO: Enter the CPU seconds from main deployment
+  # HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+  # TYPE process_cpu_seconds_total counter
+  # process_cpu_seconds_total 0.54
   process_resident_memory_bytes: #TODO: Enter the memory usage from main deployment
+  # HELP process_resident_memory_bytes Resident memory size in bytes.
+  # TYPE process_resident_memory_bytes gauge
+  # process_resident_memory_bytes 3.1113216e+07
+
 
 canary_deployment_metrics:
   http_requests_total: #TODO: Enter the value from canary deployment's /metrics endpoint
