@@ -61,8 +61,18 @@ main_deployment_metrics:
 
 canary_deployment_metrics:
   http_requests_total: #TODO: Enter the value from canary deployment's /metrics endpoint
+  ############PLEASE TAEK THESE NUMBERS WITH CAUTION COS HAS BEEN GOTTEN AFTER A LOT OF TEST. I LIKE PRESS F5 :)))))))
+  # HELP http_requests_total Total HTTP Requests
+  # TYPE http_requests_total counter
+  # http_requests_total{version="v3"} 65.0
   process_cpu_seconds_total: #TODO: Enter the CPU seconds from canary deployment
+  # HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+  # TYPE process_cpu_seconds_total counter
+  # process_cpu_seconds_total 0.41000000000000003
   process_resident_memory_bytes: #TODO: Enter the memory usage from canary deployment
+  # HELP process_resident_memory_bytes Resident memory size in bytes.
+  # TYPE process_resident_memory_bytes gauge
+  # process_resident_memory_bytes 2.443264e+07
 
 # Traffic Distribution Test
 traffic_test_results:
